@@ -27,7 +27,7 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
-    @GetMapping
+    @PostMapping
     public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
         return bookService.save(requestDto);
     }
