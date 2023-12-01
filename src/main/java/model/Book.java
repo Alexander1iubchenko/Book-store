@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import javax.validation.constraints.Min;
 import java.math.BigDecimal;
 import lombok.Data;
 import lombok.NonNull;
@@ -34,6 +35,7 @@ public class Book {
     private String isbn;
 
     @NonNull
+    @Min(0)
     private BigDecimal price;
     private String description;
     private String coverImage;
