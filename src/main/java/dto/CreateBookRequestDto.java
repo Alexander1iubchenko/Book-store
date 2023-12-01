@@ -1,7 +1,7 @@
 package dto;
 
-import javax.validation.constraints.Min;
 import java.math.BigDecimal;
+import javax.validation.constraints.Min;
 import lombok.Data;
 import lombok.NonNull;
 
