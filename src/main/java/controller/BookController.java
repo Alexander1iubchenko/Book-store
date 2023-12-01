@@ -52,7 +52,7 @@ public class BookController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
+    public void updateBook(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
         requestDto.setId(id);
         bookService.save(requestDto);
     }
