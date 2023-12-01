@@ -4,6 +4,7 @@ import dto.BookDto;
 import dto.CreateBookRequestDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import mapper.BookMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import service.BookService;
 @RequestMapping(value = "/api/books")
 public class BookController {
     private final BookService bookService;
+    private final BookMapper bookMapper;
 
     @GetMapping
     public List<BookDto> getAll() {
@@ -43,10 +45,9 @@ public class BookController {
         bookService.deleteById(id);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
-        requestDto.setId(id);
-        bookService.save(requestDto);
+        bookService.update(id, bookMapper.toModel(requestDto));
     }
 }
