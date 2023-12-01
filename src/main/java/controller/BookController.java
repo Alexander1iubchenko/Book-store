@@ -49,5 +49,11 @@ public class BookController {
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
         bookService.update(id, bookMapper.toModel(requestDto));
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    public void update(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
+        requestDto.setId(id);
+        bookService.save(requestDto);
     }
 }
