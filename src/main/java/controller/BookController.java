@@ -5,6 +5,7 @@ import dto.CreateBookRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import mapper.BookMapper;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import service.BookService;
-import javax.validation.Valid;
 
 @Tag(name = "Book management", description = "Endpoints for managing books")
 @RequiredArgsConstructor
@@ -57,7 +57,8 @@ public class BookController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/{id}")
     @Operation(summary = "Update a book by id", description = "Update a book by id in database")
-    public void updateBook(@PathVariable Long id, @Valid @RequestBody CreateBookRequestDto requestDto) {
+    public void updateBook(@PathVariable Long id,
+                           @Valid @RequestBody CreateBookRequestDto requestDto) {
         bookService.update(id, bookMapper.toModel(requestDto));
     }
 }
