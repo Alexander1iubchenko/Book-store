@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import service.BookService;
+import javax.validation.Valid;
 
 @Tag(name = "Book management", description = "Endpoints for managing books")
 @RequiredArgsConstructor
@@ -42,7 +43,7 @@ public class BookController {
 
     @PostMapping
     @Operation(summary = "Create a new book", description = "Creates a new book")
-    public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
+    public BookDto createBook(@Valid @RequestBody CreateBookRequestDto requestDto) {
         return bookService.save(requestDto);
     }
 
@@ -56,7 +57,7 @@ public class BookController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/{id}")
     @Operation(summary = "Update a book by id", description = "Update a book by id in database")
-    public void updateBook(@PathVariable Long id, @RequestBody CreateBookRequestDto requestDto) {
+    public void updateBook(@PathVariable Long id, @Valid @RequestBody CreateBookRequestDto requestDto) {
         bookService.update(id, bookMapper.toModel(requestDto));
     }
 }

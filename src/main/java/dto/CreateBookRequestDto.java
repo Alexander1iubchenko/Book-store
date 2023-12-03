@@ -2,19 +2,20 @@ package dto;
 
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NonNull;
+
 
 @Data
 public class CreateBookRequestDto {
     private Long id;
-    @NonNull
+    @NotNull
     private String title;
-    @NonNull
+    @NotNull
     private String author;
-    @NonNull
+    @NotNull
     private String isbn;
-    @NonNull
+    @NotNull
     @Min(0)
     private BigDecimal price;
     private String description;
