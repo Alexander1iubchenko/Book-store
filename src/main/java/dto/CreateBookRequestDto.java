@@ -2,19 +2,18 @@ package dto;
 
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 public class CreateBookRequestDto {
-    private Long id;
-    @NonNull
+    @NotNull(message = "Title cannot be null.")
     private String title;
-    @NonNull
+    @NotNull(message = "Title cannot be null.")
     private String author;
-    @NonNull
+    @NotNull(message = "Title cannot be null.")
     private String isbn;
-    @NonNull
+    @NotNull(message = "Title cannot be null.")
     @Min(0)
     private BigDecimal price;
     private String description;
