@@ -7,14 +7,13 @@ import lombok.Data;
 
 @Data
 public class CreateBookRequestDto {
-    private Long id;
-    @NotNull
+    @NotNull(message = "Title cannot be null.")
     private String title;
-    @NotNull
+    @NotNull(message = "Title cannot be null.")
     private String author;
-    @NotNull
+    @NotNull(message = "Title cannot be null.")
     private String isbn;
-    @NotNull
+    @NotNull(message = "Title cannot be null.")
     @Min(0)
     private BigDecimal price;
     private String description;
