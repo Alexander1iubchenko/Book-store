@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
+import javax.validation.constraints.Min;
 import lombok.Data;
 import lombok.NonNull;
 import org.hibernate.annotations.SQLDelete;
@@ -34,6 +35,7 @@ public class Book {
     private String isbn;
 
     @NonNull
+    @Min(0)
     private BigDecimal price;
     private String description;
     private String coverImage;
