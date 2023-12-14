@@ -7,27 +7,23 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NonNull;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NonNull
-    @Column(unique = true)
+    @Column(unique = true, nullable=false)
     private String email;
-    @NonNull
+    @Column(unique = true, nullable=false)
     private String password;
-    @NonNull
+    @Column(unique = true, nullable=false)
     private String firstName;
-    @NonNull
+    @Column(unique = true, nullable=false)
     private String lastName;
     private String shippingAddress;
-
-    public User() {
-
-    }
 }
