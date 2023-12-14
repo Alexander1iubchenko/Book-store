@@ -1,7 +1,7 @@
 package controller;
 
-import dto.BookDto;
-import dto.CreateBookRequestDto;
+import dto.book.BookDto;
+import dto.book.CreateBookRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;

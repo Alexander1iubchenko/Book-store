@@ -1,7 +1,7 @@
 package service;
 
-import dto.BookDto;
-import dto.CreateBookRequestDto;
+import dto.book.BookDto;
+import dto.book.CreateBookRequestDto;
 import exception.EntityNotFoundException;
 import java.util.List;
 import lombok.RequiredArgsConstructor;

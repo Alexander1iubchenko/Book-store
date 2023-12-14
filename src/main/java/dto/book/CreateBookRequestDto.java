@@ -1,4 +1,4 @@
-package dto;
+package dto.book;
 
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
