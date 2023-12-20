@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_users
+      author: alex
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: email
+                  value: john@example.com
+              - column:
+                  name: password
+                  value: ughiungirn5486874
+              - column:
+                  name: first_name
+                  value: John
+              - column:
+                  name: last_name
+                  value: Doe
+              - column:
+                  name: shipping_address
+                  value: Prorizna 14
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: email
+                  value: jane@example.com
+              - column:
+                  name: password
+                  value: dgtbgntnkgtnk85647956
+              - column:
+                  name: first_name
+                  value: Jane
+              - column:
+                  name: last_name
+                  value: Smith
+              - column:
+                  name: shipping_address
+                  value: Prorizna 15
