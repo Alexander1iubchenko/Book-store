@@ -6,6 +6,7 @@ import exception.RegistrationException;
 import lombok.RequiredArgsConstructor;
 import mapper.UserMapper;
 import model.User;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import repository.UserRepository;
 
@@ -14,6 +15,7 @@ import repository.UserRepository;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserResponseDto register(UserRegistrationRequestDto requestDto)
@@ -22,6 +24,7 @@ public class UserServiceImpl implements UserService {
             throw new RegistrationException("Can not register this user");
         }
         User user = new User();
+        requestDto.setPassword(passwordEncoder.encode(requestDto.getPassword()));
         user.setEmail(requestDto.getEmail());
         user.setPassword(requestDto.getPassword());
         User savedUser = userRepository.save(user);
