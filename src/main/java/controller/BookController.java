@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import mapper.BookMapper;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,18 +31,21 @@ public class BookController {
     private final BookMapper bookMapper;
 
     @GetMapping
+    @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Get all books", description = "Get a list of all available books")
     public List<BookDto> findAll(Pageable pageable) {
         return bookService.findAll(pageable);
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
     @Operation(summary = "Get a book by id", description = "Gets a book by id")
     public BookDto getBookById(@PathVariable Long id) {
         return bookService.getBookById(id);
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Create a new book", description = "Creates a new book")
     public BookDto createBook(@Valid @RequestBody CreateBookRequestDto requestDto) {
         return bookService.save(requestDto);
@@ -49,6 +53,7 @@ public class BookController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Delete a book by id", description = "Delete a book by id in database")
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteById(id);
@@ -56,6 +61,7 @@ public class BookController {
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Update a book by id", description = "Update a book by id in database")
     public void updateBook(@PathVariable Long id,
                            @Valid @RequestBody CreateBookRequestDto requestDto) {
