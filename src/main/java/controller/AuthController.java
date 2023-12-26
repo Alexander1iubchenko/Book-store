@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import security.AuthenticationService;
 import service.UserService;
 
+import javax.validation.Valid;
+
 @Tag(name = "User management", description = "Endpoints for managing users")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/api/auth")
 public class AuthController {
     private final UserService userService;
     private final AuthenticationService authenticationService;
@@ -29,7 +31,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public UserLoginResponseDto login(@RequestBody UserLoginRequestDto request) {
+    public UserLoginResponseDto login(@Valid @RequestBody UserLoginRequestDto request) {
         return authenticationService.authenticate(request);
     }
 }

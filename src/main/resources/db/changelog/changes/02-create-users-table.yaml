@@ -40,5 +40,6 @@ databaseChangeLog:
               - column:
                   name: isDeleted
                   type: boolean
+                  defaultValueBoolean: false
                   constraints:
                     nullable: false
