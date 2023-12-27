@@ -1,4 +1,4 @@
-package service;
+package security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
