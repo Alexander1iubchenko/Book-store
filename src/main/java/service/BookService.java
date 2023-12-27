@@ -1,6 +1,7 @@
 package service;
 
 import dto.book.BookDto;
+import dto.book.BookDtoWithoutCategoriesIds;
 import dto.book.CreateBookRequestDto;
 import java.util.List;
 import model.Book;
@@ -16,4 +17,6 @@ public interface BookService {
     void deleteById(Long id);
 
     void update(Long id, Book book);
+
+    List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(Long id);
 }

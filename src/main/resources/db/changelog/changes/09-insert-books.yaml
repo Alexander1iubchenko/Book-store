@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_books
+      author: alex
+      changes:
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: The Witcher
+              - column:
+                  name: author
+                  value: Andrzej Sapkowski
+              - column:
+                  name: isbn
+                  value: "147893333X"
+              - column:
+                  name: price
+                  value: 100
+              - column:
+                  name: description
+                  value: The series revolves around the eponymous "witcher", Geralt of Rivia.
+              - column:
+                  name: cover_image
+                  value: "https://www.google.com/url/1"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: Sapiens
+              - column:
+                  name: author
+                  value: Yuval Noah Harari
+              - column:
+                  name: isbn
+                  value: "978-0062316097"
+              - column:
+                  name: price
+                  value: 200
+              - column:
+                  name: description
+                  value: The book, focusing on Homo sapiens, surveys the history of humankind.
+              - column:
+                  name: cover_image
+                  value: "https://www.google.com/url/2"
+        - insert:
+            tableName: books
+            columns:
+              - column:
+                  name: title
+                  value: Mein Kampf
+              - column:
+                  name: author
+                  value: Adolf Hitler
+              - column:
+                  name: isbn
+                  value: "9780977476077"
+              - column:
+                  name: price
+                  value: 1945
+              - column:
+                  name: description
+                  value: Mein Kampf is a 1925 autobiographical manifesto by Nazi Party leader Adolf Hitler.
+              - column:
+                  name: cover_image
+                  value: "https://www.google.com/url/3"
