@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
       id: create-roles-table
-      author: alex
+      author: alex_liubchenko
       changes:
         - createTable:
             tableName: categories
@@ -11,7 +11,6 @@ databaseChangeLog:
                   type: bigint
                   autoIncrement: true
                   constraints:
-                    nullable: false
                     primaryKey: true
               - column:
                   name: name

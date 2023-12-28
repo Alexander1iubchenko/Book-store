@@ -18,5 +18,5 @@ public interface BookService {
 
     void update(Long id, Book book);
 
-    List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(Long id);
+    List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(Long id, Pageable pageable);
 }

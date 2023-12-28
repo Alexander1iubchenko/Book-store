@@ -48,12 +48,14 @@ public class CategoryController {
 
     @GetMapping("/{id}/books")
     @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
-    public List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(@PathVariable Long id) {
-        return bookService.getBooksByCategoryId(id);
+    public List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(@PathVariable Long id,
+                                                                  Pageable pageable) {
+        return bookService.getBooksByCategoryId(id, pageable);
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create a new category",
             description = "Creates a new category")
     public CategoryDto createCategory(@Valid @RequestBody
