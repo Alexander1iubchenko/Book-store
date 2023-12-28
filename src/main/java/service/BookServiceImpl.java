@@ -1,6 +1,7 @@
 package service;
 
 import dto.book.BookDto;
+import dto.book.BookDtoWithoutCategoriesIds;
 import dto.book.CreateBookRequestDto;
 import exception.EntityNotFoundException;
 import java.util.List;
@@ -47,5 +48,12 @@ public class BookServiceImpl implements BookService {
     public void update(Long id, Book book) {
         book.setId(id);
         bookRepository.save(book);
+    }
+
+    @Override
+    public List<BookDtoWithoutCategoriesIds> getBooksByCategoryId(Long id, Pageable pageable) {
+        return bookRepository.findAllByCategoriesId(id).stream()
+                .map(bookMapper::toDtoWithoutCategoriesIds)
+                .toList();
     }
 }

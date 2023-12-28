@@ -1,26 +1,26 @@
 databaseChangeLog:
   - changeSet:
-      id: create-users-roles-table
-      author: alex
+      id: create_books_categories_table
+      author: alex_liubchenko
       changes:
         - createTable:
-            tableName: users_roles
+            tableName: books_categories
             columns:
               - column:
-                  name: user_id
+                  name: book_id
                   type: bigint
                   constraints:
                     primaryKey: true
-                    foreignKeyName: foreignKey_user
                     nullable: false
-                    references: users(id)
+                    foreignKeyName: foreignKey_book_id
+                    references: books(id)
                     deleteCascade: true
               - column:
-                  name: role_id
+                  name: category_id
                   type: bigint
                   constraints:
                     primaryKey: true
-                    foreignKeyName: foreignKey_role
                     nullable: false
-                    references: roles(id)
+                    foreignKeyName: foreignKey_category_id
+                    references: categories(id)
                     deleteCascade: true
