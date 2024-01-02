@@ -39,7 +39,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String lastName;
     private String shippingAddress;
-    @Column(nullable = false)
+    @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
