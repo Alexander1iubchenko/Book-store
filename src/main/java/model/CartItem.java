@@ -31,7 +31,7 @@ public class CartItem {
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "shopping_cart_id", nullable = false)
     private ShoppingCart shoppingCart;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY) 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "book_id", nullable = false)
