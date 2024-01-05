@@ -1,4 +1,4 @@
-package service;
+package service.category;
 
 import dto.category.CategoryDto;
 import dto.category.CategoryRequestDto;

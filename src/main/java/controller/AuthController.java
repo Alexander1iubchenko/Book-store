@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import security.AuthenticationService;
-import service.UserService;
+import service.user.UserService;
 
 @Tag(name = "User management", description = "Endpoints for managing users")
 @RequiredArgsConstructor

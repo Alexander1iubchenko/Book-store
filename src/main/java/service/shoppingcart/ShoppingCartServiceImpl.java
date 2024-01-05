@@ -1,4 +1,4 @@
-package service;
+package service.shoppingcart;
 
 import dto.cart.AddToCartRequestDto;
 import dto.cart.CartItemRequestUpdateDto;

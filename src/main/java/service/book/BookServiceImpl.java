@@ -1,4 +1,4 @@
-package service;
+package service.book;
 
 import dto.book.BookDto;
 import dto.book.BookDtoWithoutCategoriesIds;
