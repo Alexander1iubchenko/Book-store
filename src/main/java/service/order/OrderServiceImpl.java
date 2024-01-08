@@ -16,8 +16,8 @@ import mapper.OrderItemMapper;
 import mapper.OrderMapper;
 import model.Order;
 import model.OrderItem;
+import model.OrderStatus;
 import model.ShoppingCart;
-import model.Status;
 import model.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -49,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can not find order by this id: " + id)
         );
-        order.setStatus(requestDto.getStatus());
+        order.setOrderStatus(requestDto.getOrderStatus());
         orderRepository.save(order);
         return orderMapper.toDto(order);
     }
@@ -117,7 +117,7 @@ public class OrderServiceImpl implements OrderService {
         order.setTotal(total);
         order.setUser(user);
         order.setOrderDate(LocalDateTime.now());
-        order.setStatus(Status.PENDING);
+        order.setOrderStatus(OrderStatus.PENDING);
         order.setShippingAddress(shippingAddress);
         return order;
     }

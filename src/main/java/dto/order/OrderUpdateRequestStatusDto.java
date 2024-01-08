@@ -2,10 +2,10 @@ package dto.order;
 
 import javax.validation.constraints.NotNull;
 import lombok.Data;
-import model.Status;
+import model.OrderStatus;
 
 @Data
 public class OrderUpdateRequestStatusDto {
     @NotNull
-    private Status status;
+    private OrderStatus orderStatus;
 }

@@ -1,6 +1,6 @@
 package model;
 
-public enum Status {
+public enum OrderStatus {
     RECEIVED,
     DELIVERED,
     SHIPPED,
