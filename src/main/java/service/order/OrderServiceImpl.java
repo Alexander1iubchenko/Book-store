@@ -103,7 +103,7 @@ public class OrderServiceImpl implements OrderService {
         OrderItem orderItem = orderItemRepository.findByIdAndOrderId(orderItemId, orderId)
                 .orElseThrow(
                         () -> new EntityNotFoundException("Can not find order "
-                                + "item by this id: " + orderItemId)
+                                + "item by that id: " + orderItemId)
                 );
         return orderItemMapper.toDto(orderItem);
     }
