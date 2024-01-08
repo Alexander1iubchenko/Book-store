@@ -99,17 +99,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    @Transactional
     public OrderItemResponseDto findOrderItemInOrder(Long userId, Long orderId, Long orderItemId) {
-        Order order = orderRepository.findOrderByIdAndUserId(orderId, userId).orElseThrow(
-                () -> new EntityNotFoundException("Can not find order by this id: " + orderId)
-        );
-        return orderItemMapper.toDto(order.getItemSet().stream()
-                .filter(orderItem -> orderItem.getId().equals(orderItemId))
-                .findFirst()
+        OrderItem orderItem = orderItemRepository.findByIdAndOrderId(orderItemId, orderId)
                 .orElseThrow(
-                        () -> new EntityNotFoundException("Can't find orderItem by id: "
-                                + orderItemId)));
+                        () -> new EntityNotFoundException("Can not find order "
+                                + "item by this id: " + orderItemId)
+                );
+        return orderItemMapper.toDto(orderItem);
     }
 
     private Order newOrder(User user, String shippingAddress, BigDecimal total) {
