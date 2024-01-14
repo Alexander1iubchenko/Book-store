@@ -17,7 +17,7 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: foreignKey_user_id
+                    foreignKeyName: fk_orders_user_id
                     references: users(id)
               - column:
                   name: status

@@ -23,6 +23,6 @@ public class BookRepositoryTest {
         Page<Book> result = bookRepository.findAll(pageable);
 
         Assertions.assertNotNull(result);
-        Assertions.assertEquals(3, result.getTotalElements());
+        Assertions.assertEquals(6, result.getTotalElements());
     }
 }
