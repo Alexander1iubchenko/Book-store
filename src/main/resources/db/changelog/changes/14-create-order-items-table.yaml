@@ -17,14 +17,14 @@ databaseChangeLog:
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: foreignKey_order_id
+                    foreignKeyName: fk_order_items_order_id
                     references: orders(id)
               - column:
                   name: book_id
                   type: bigint
                   constraints:
                     nullable: false
-                    foreignKeyName: foreignKey_book_id
+                    foreignKeyName: fk_order_items_book_id
                     references: books(id)
               - column:
                   name: quantity
