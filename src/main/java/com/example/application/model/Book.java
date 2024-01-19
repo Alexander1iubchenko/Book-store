@@ -46,12 +46,16 @@ public class Book {
     @NonNull
     @Min(0)
     private BigDecimal price;
+
     @Column(name = "description")
     private String description;
+
     @Column(name = "cover_image")
     private String coverImage;
+
     @Column(name = "is_deleted", nullable = false)
     private boolean isDeleted = false;
+
     @ManyToMany
     @JoinTable(name = "books_categories",
             joinColumns = @JoinColumn(name = "book_id"),
