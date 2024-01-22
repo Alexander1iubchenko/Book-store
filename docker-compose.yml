@@ -19,6 +19,7 @@ services:
       - mysqldb
     restart: on-failure
     image: book-store
+    build: .
     env_file: ./.env
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
