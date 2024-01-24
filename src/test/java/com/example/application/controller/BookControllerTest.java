@@ -40,12 +40,12 @@ class BookControllerTest {
     @Sql(scripts = {"classpath:database/books/add-books-to-books-table.sql"})
     void createBook_ValidBookRequest_ReturnBookDto() throws Exception {
 
-        CreateBookRequestDto bookRequestDto = new CreateBookRequestDto()
+        CreateBookRequestDto expected = new CreateBookRequestDto()
                 .setTitle("SomeBook")
                 .setAuthor("Story about a book")
                 .setPrice(BigDecimal.valueOf(50))
                 .setIsbn("43786787656");
-        String jsonRequest = objectMapper.writeValueAsString(bookRequestDto);
+        String jsonRequest = objectMapper.writeValueAsString(expected);
 
         MvcResult mvcResult = mockMvc.perform(post("/api/books")
                         .content(jsonRequest)
@@ -53,11 +53,6 @@ class BookControllerTest {
                 .andExpect(status().isCreated())
                 .andReturn();
 
-        BookDto expected = new BookDto()
-                .setTitle(bookRequestDto.getTitle())
-                .setAuthor(bookRequestDto.getAuthor())
-                .setPrice(bookRequestDto.getPrice())
-                .setIsbn(bookRequestDto.getIsbn());
         BookDto actual
                 = objectMapper.readValue(mvcResult.getResponse().getContentAsString(),
                 BookDto.class);
@@ -66,5 +61,4 @@ class BookControllerTest {
         Assertions.assertEquals(expected.getTitle(), actual.getTitle());
         Assertions.assertEquals(expected.getPrice(), actual.getPrice());
     }
-
 }
