@@ -1,17 +1,25 @@
-
+![img.png](images%2Fimg.png)
 # Book Store
+
+<hr>
+<br>
 
 The Book Store API is a Java-based web service that provides endpoints for managing a book store. It allows users to perform operations like adding new books, retrieving book details, updating book information, and much more.
 * overseeing the management of available books and categories (including adding new items and removing outdated ones)
 * handling the population of shopping carts with cart items and facilitating order completion based on their contents
 * managing the user's orders
+<hr>
+
 ## Features
 * CRUD operations for managing books.
 * User authentication and authorization.
 * Shopping cart functionality.
 * Order processing and management.
+
+<hr>
+
 ## Used Technologies
-Core Technologies:
+### Core Technologies:
 * Java
 * Maven (Build tool)
 ### Spring Framework:
@@ -31,10 +39,12 @@ Core Technologies:
 ### API Documentation:
 * Swagger
 
+<hr>
+
 ## Functionality of controllers
 
 ### Book controller
-####Get a List of All Available Books
+#### Get a List of All Available Books
 
 ```http
   GET /api/books
