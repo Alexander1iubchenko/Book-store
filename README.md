@@ -1,4 +1,5 @@
-![img.png](images%2Fimg.png)
+![](images/bookstore_image.png)
+
 # Book Store
 
 <hr>
