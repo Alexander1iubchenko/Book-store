@@ -296,7 +296,10 @@ The Book Store API is a Java-based web service that provides endpoints for manag
 ## How to test the project from your side?
 * Make sure to have JDK 17+, Docker and Postman installed
 * Clone this repository
-* Create the .env file with the corresponding variables
+* Create the .env file with the corresponding variables, like in the picture below:
+
+
+![](images/example_of_env.png)
 * Build images using _docker-compose build_ and run the service in containers using _docker-compose up_
 ## What was difficult about creating the project?
 Creating the project presented several significant challenges, each requiring dedicated effort and perseverance. Understanding the entire architecture of the application was initially daunting, but through extensive research and valuable interactions with experienced professionals, I gradually gained insights and identified an appropriate structure.
