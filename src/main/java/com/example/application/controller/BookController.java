@@ -1,6 +1,7 @@
 package com.example.application.controller;
 
 import com.example.application.dto.book.BookDto;
+import com.example.application.dto.book.BookSearchParametersDto;
 import com.example.application.dto.book.CreateBookRequestDto;
 import com.example.application.mapper.BookMapper;
 import com.example.application.service.book.BookService;
@@ -50,6 +51,13 @@ public class BookController {
     @Operation(summary = "Create a new book", description = "Creates a new book")
     public BookDto createBook(@Valid @RequestBody CreateBookRequestDto requestDto) {
         return bookService.save(requestDto);
+    }
+
+    @GetMapping("/search")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @Operation(summary = "Search book by parameters", description = "Search book by parameters")
+    public List<BookDto> searchBooks(BookSearchParametersDto searchParameters, Pageable pageable) {
+        return bookService.search(searchParameters, pageable);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
